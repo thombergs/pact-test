@@ -9,8 +9,8 @@ ui-download-dependencies:
   tags:
     - docker
   script:
-    - export http_proxy=$CI_HTTP_PROXY
-    - export https_proxy=$CI_HTTPS_PROXY
+    - export http_proxy=http://remondis-de%5CDE9899-Proxy:PasswordSwordfish9899@proxy.remondis.local:80/
+    - export https_proxy=http://remondis-de%5CDE9899-Proxy:PasswordSwordfish9899@proxy.remondis.local:80/
     - npm install
   artifacts:
     paths:
