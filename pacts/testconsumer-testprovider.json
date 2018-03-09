@@ -3,7 +3,7 @@
     "name": "testconsumer"
   },
   "provider": {
-    "name": "article"
+    "name": "testprovider"
   },
   "interactions": [
     {
