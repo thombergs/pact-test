@@ -1,0 +1,1989 @@
+{
+  "consumer": {
+    "name": "testconsumer"
+  },
+  "provider": {
+    "name": "testprovider6"
+  },
+  "interactions": [
+    {
+      "description": "a GET request to list organizational units",
+      "providerState": "a list of organizational units exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/organizational-units",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "name": "Organisationseinheit"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for a list of branches",
+      "providerState": "a list of branches exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/branches"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 142,
+              "name": "Geschäftsstelle Lünen",
+              "companyName": "REMONDIS IT-Services GmbH",
+              "address": {
+                "houseNumber": "142 am Eck",
+                "street": "Musterstr.",
+                "city": "Großhintertupfingen",
+                "zipCode": "1111",
+                "countryCode": "EN"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for a list of articles",
+      "providerState": "a list of articles exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/articles",
+        "query": "size=2000"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 100002,
+              "articleNumber": 251,
+              "description": "deposit Profound Unbranded",
+              "measurementUnit": {
+                "id": 63,
+                "description": "l",
+                "baseUnit": {
+                  "id": 95,
+                  "description": "Gewicht"
+                }
+              },
+              "material": {
+                "id": 100001,
+                "materialNumber": 173,
+                "materialDescription": "payment Oregon Cambridgeshire",
+                "wasteDescription": "payment Neck Investment Account",
+                "wasteCode": "229018"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for a list of plants accepting material 42 at zoned date time",
+      "providerState": "a list of plants exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/plants/accepting",
+        "query": "material=42&timestamp=2018-01-01T00%3A00%3A00.000%2B01%3A00&size=2000"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 100003,
+              "description": "Cassin and Sons"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for weighing 42",
+      "providerState": "weighing 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighings/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "type": "TARE_WEIGHING",
+          "netWeight": {
+            "value": 45.60447,
+            "measurementUnit": {
+              "id": 97,
+              "description": "Stück",
+              "baseUnit": {
+                "id": 443,
+                "description": "Gewicht"
+              }
+            }
+          },
+          "measurements": [
+            {
+              "id": 280,
+              "timestamp": "2018-03-08T18:39:20.394Z",
+              "weight": {
+                "value": 88.48193,
+                "measurementUnit": {
+                  "id": 278,
+                  "description": "t",
+                  "baseUnit": {
+                    "id": 335,
+                    "description": "Gewicht"
+                  }
+                }
+              },
+              "alibiNumber": "4000",
+              "weighingDevice": {
+                "id": 385,
+                "deviceId": 131,
+                "name": "fl5bhp8yb8bfwtintbqr",
+                "branchIds": [
+                  202,
+                  30
+                ]
+              },
+              "measurementType": "GROSS_MEASUREMENT",
+              "captureType": "WEIGHING"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for weighing 42 ",
+      "providerState": "weighing 42 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighings/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET for weighingnote with weighing 42",
+      "providerState": "weighingnote for weighing 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighings/42/weighing-note"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/pdf"
+        }
+      }
+    },
+    {
+      "description": "a GET for weighingnote with weighing 43 ",
+      "providerState": "weighingnote for weighing 43 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighings/43/weighing-note"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a weighingDevice",
+      "providerState": "provider allows creating a weighingDevice",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-devices",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "deviceId": 141,
+          "name": "cy4w57ybmngyi1ai7387",
+          "branchIds": [
+            453,
+            157
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a weighingDevice with specified ID",
+      "providerState": "provider allows creating a weighingDevice",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-devices",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 19,
+          "deviceId": 383,
+          "name": "wrqs7e59l0ytjkn4hbtm",
+          "branchIds": [
+            330,
+            92
+          ]
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "IdMustBeNull"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a weighingDevice with existing DeviceId",
+      "providerState": "weighingDevice 42 exists",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-devices",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 321,
+          "deviceId": 206,
+          "name": "jjgg1f534x7ov8jjjps2",
+          "branchIds": [
+            84,
+            140
+          ]
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "deviceId",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "UniqueConstraint"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update weighingDevice 42",
+      "providerState": "weighingDevice 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/weighing-service/api/weighing-devices/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "deviceId": 257,
+          "name": "f01rs8nbez5fs51wfqtx",
+          "branchIds": [
+            326,
+            372
+          ]
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update weighingDevice 42",
+      "providerState": "weighingDevice 42 does not exist",
+      "request": {
+        "method": "PUT",
+        "path": "/weighing-service/api/weighing-devices/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "deviceId": 431,
+          "name": "9ee9c6fe3eaat2aig1r8",
+          "branchIds": [
+            491,
+            425
+          ]
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update a weighingDevice with a different ID",
+      "providerState": "weighingDevice 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/weighing-service/api/weighing-devices/45",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "deviceId": 298,
+          "name": "3kzpx16uzn765omh7rnt",
+          "branchIds": [
+            309,
+            251
+          ]
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "PathIdDoesNotMatchPayload"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list weighingDevices",
+      "providerState": "a list of weighingDevices exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighing-devices",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 179,
+              "deviceId": 385,
+              "name": "9wh8s9tp2gq7ii0ezemd",
+              "branchIds": [
+                153,
+                222
+              ]
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for weighingDevice 42",
+      "providerState": "weighingDevice 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighing-devices/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "deviceId": 43,
+          "name": "yc4o4ow7s94s0iy52tsn",
+          "branchIds": [
+            391,
+            61
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for weighingDevice 42 ",
+      "providerState": "weighingDevice 42 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighing-devices/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a POST to trigger a Weighing",
+      "providerState": "weighingDevice 42 exists",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-devices/42/weighings"
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "id": 4711
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST to trigger a Weighing",
+      "providerState": "weighingDevice 42 does not exist",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-devices/42/weighings"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list measurement units",
+      "providerState": "a list of measurement units exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/measurement-units",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 92,
+              "description": "g",
+              "baseUnit": {
+                "id": 111,
+                "description": "Gewicht"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a WeighingOrder",
+      "providerState": "provider allows creating a weighingOrder",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-orders",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "status": "open",
+          "creationDate": "2018-03-08T18:13:32.523Z",
+          "licensePlate": "cdfj00f2lr",
+          "weighingOrderItems": [
+            {
+              "id": 389,
+              "plant": {
+                "id": 100001,
+                "description": "Eichmann and Sons"
+              },
+              "article": {
+                "id": 100001,
+                "articleNumber": 1,
+                "description": "Specialist Interactions USB",
+                "measurementUnit": {
+                  "id": 42,
+                  "description": "t",
+                  "baseUnit": {
+                    "id": 120,
+                    "description": "Gewicht"
+                  }
+                },
+                "material": {
+                  "id": 100002,
+                  "materialNumber": 378,
+                  "materialDescription": "payment Berkshire cyan",
+                  "wasteDescription": "auxiliary niches Credit Card Account",
+                  "wasteCode": "222256"
+                }
+              },
+              "quantity": 358,
+              "measurementUnit": {
+                "id": 42,
+                "description": "l",
+                "baseUnit": {
+                  "id": 10,
+                  "description": "Gewicht"
+                }
+              },
+              "weighings": [
+                {
+                  "id": 220,
+                  "type": "TARE_WEIGHING",
+                  "netWeight": {
+                    "value": 32.36485,
+                    "measurementUnit": {
+                      "id": 42,
+                      "description": "l",
+                      "baseUnit": {
+                        "id": 10,
+                        "description": "Gewicht"
+                      }
+                    }
+                  },
+                  "measurements": [
+                    {
+                      "id": 360,
+                      "timestamp": "2018-03-09T11:15:44.349Z",
+                      "weight": {
+                        "value": 6.31902,
+                        "measurementUnit": {
+                          "id": 337,
+                          "description": "mg",
+                          "baseUnit": {
+                            "id": 272,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "alibiNumber": "4032",
+                      "weighingDevice": {
+                        "id": 188,
+                        "deviceId": 450,
+                        "name": "6ts96ju0664ss3obvst7",
+                        "branchIds": [
+                          75,
+                          105
+                        ]
+                      },
+                      "measurementType": "GROSS_MEASUREMENT",
+                      "captureType": "WEIGHING"
+                    }
+                  ]
+                }
+              ],
+              "unitPrice": {
+                "amount": 134,
+                "currency": {
+                  "id": 261,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              },
+              "subTotal": {
+                "amount": 16,
+                "currency": {
+                  "id": 55,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ],
+          "organizationalUnit": {
+            "id": 1,
+            "name": "Organisationseinheit"
+          },
+          "total": {
+            "amount": 418,
+            "currency": {
+              "id": 106,
+              "name": "Euro",
+              "isoCode": "EUR",
+              "symbol": "\u20ac"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a WeighingOrder with specified ID",
+      "providerState": "provider allows creating a weighingOrder",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-orders",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 293,
+          "status": "open",
+          "creationDate": "2018-03-08T18:56:50.454Z",
+          "licensePlate": "5ldxhw1dhj",
+          "weighingOrderItems": [
+            {
+              "id": 334,
+              "plant": {
+                "id": 100003,
+                "description": "Schaefer - Kautzer"
+              },
+              "article": {
+                "id": 100001,
+                "articleNumber": 130,
+                "description": "Fish fault-tolerant Heights",
+                "measurementUnit": {
+                  "id": 121,
+                  "description": "t",
+                  "baseUnit": {
+                    "id": 73,
+                    "description": "Gewicht"
+                  }
+                },
+                "material": {
+                  "id": 100002,
+                  "materialNumber": 168,
+                  "materialDescription": "Saint Helena Product synthesizing",
+                  "wasteDescription": "Regional program transparent",
+                  "wasteCode": "436892"
+                }
+              },
+              "quantity": 407,
+              "measurementUnit": {
+                "id": 400,
+                "description": "g",
+                "baseUnit": {
+                  "id": 329,
+                  "description": "Gewicht"
+                }
+              },
+              "weighings": [
+                {
+                  "id": 419,
+                  "type": "TARE_WEIGHING",
+                  "netWeight": {
+                    "value": 55.64426,
+                    "measurementUnit": {
+                      "id": 400,
+                      "description": "g",
+                      "baseUnit": {
+                        "id": 329,
+                        "description": "Gewicht"
+                      }
+                    }
+                  },
+                  "measurements": [
+                    {
+                      "id": 309,
+                      "timestamp": "2018-03-08T23:01:18.581Z",
+                      "weight": {
+                        "value": 20.19032,
+                        "measurementUnit": {
+                          "id": 246,
+                          "description": "mg",
+                          "baseUnit": {
+                            "id": 196,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "alibiNumber": "173",
+                      "weighingDevice": {
+                        "id": 134,
+                        "deviceId": 281,
+                        "name": "igno63now2hxycwor07z",
+                        "branchIds": [
+                          391,
+                          399
+                        ]
+                      },
+                      "measurementType": "GROSS_MEASUREMENT",
+                      "captureType": "WEIGHING"
+                    }
+                  ]
+                }
+              ],
+              "unitPrice": {
+                "amount": 332,
+                "currency": {
+                  "id": 22,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              },
+              "subTotal": {
+                "amount": 210,
+                "currency": {
+                  "id": 229,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ],
+          "organizationalUnit": {
+            "id": 1,
+            "name": "Organisationseinheit"
+          },
+          "total": {
+            "amount": 44,
+            "currency": {
+              "id": 374,
+              "name": "Euro",
+              "isoCode": "EUR",
+              "symbol": "\u20ac"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "IdMustBeNull"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update WeighingOrder 42",
+      "providerState": "weighingOrder 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/weighing-service/api/weighing-orders/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "status": "open",
+          "creationDate": "2018-03-09T02:22:37.355Z",
+          "licensePlate": "4ypah4qju7",
+          "weighingOrderItems": [
+            {
+              "id": 170,
+              "plant": {
+                "id": 100003,
+                "description": "Dach, West and Runolfsdottir"
+              },
+              "article": {
+                "id": 100002,
+                "articleNumber": 57,
+                "description": "US Dollar redundant Director",
+                "measurementUnit": {
+                  "id": 42,
+                  "description": "Stück",
+                  "baseUnit": {
+                    "id": 216,
+                    "description": "Gewicht"
+                  }
+                },
+                "material": {
+                  "id": 100002,
+                  "materialNumber": 334,
+                  "materialDescription": "array magnetic Adaptive",
+                  "wasteDescription": "Sudanese Pound Slovakia (Slovak Republic) Toys",
+                  "wasteCode": "841868"
+                }
+              },
+              "quantity": 1807,
+              "measurementUnit": {
+                "id": 42,
+                "description": "kg",
+                "baseUnit": {
+                  "id": 187,
+                  "description": "Gewicht"
+                }
+              },
+              "weighings": [
+                {
+                  "id": 200,
+                  "type": "TARE_WEIGHING",
+                  "netWeight": {
+                    "value": 30.93618,
+                    "measurementUnit": {
+                      "id": 42,
+                      "description": "kg",
+                      "baseUnit": {
+                        "id": 187,
+                        "description": "Gewicht"
+                      }
+                    }
+                  },
+                  "measurements": [
+                    {
+                      "id": 391,
+                      "timestamp": "2018-03-08T19:18:46.629Z",
+                      "weight": {
+                        "value": 57.48928,
+                        "measurementUnit": {
+                          "id": 195,
+                          "description": "m",
+                          "baseUnit": {
+                            "id": 199,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "alibiNumber": "4652",
+                      "weighingDevice": {
+                        "id": 109,
+                        "deviceId": 224,
+                        "name": "o3pe0m1yi9s0kx94v3qi",
+                        "branchIds": [
+                          344,
+                          340
+                        ]
+                      },
+                      "measurementType": "GROSS_MEASUREMENT",
+                      "captureType": "WEIGHING"
+                    }
+                  ]
+                }
+              ],
+              "unitPrice": {
+                "amount": 140,
+                "currency": {
+                  "id": 321,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              },
+              "subTotal": {
+                "amount": 220,
+                "currency": {
+                  "id": 220,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ],
+          "organizationalUnit": {
+            "id": 1,
+            "name": "Organisationseinheit"
+          },
+          "total": {
+            "amount": 156,
+            "currency": {
+              "id": 476,
+              "name": "Euro",
+              "isoCode": "EUR",
+              "symbol": "\u20ac"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update WeighingOrder 42",
+      "providerState": "weighingOrder 42 does not exist",
+      "request": {
+        "method": "PUT",
+        "path": "/weighing-service/api/weighing-orders/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "status": "open",
+          "creationDate": "2018-03-09T07:23:32.551Z",
+          "licensePlate": "xbkrgvh4r4",
+          "weighingOrderItems": [
+            {
+              "id": 234,
+              "plant": {
+                "id": 100003,
+                "description": "Waters, Hansen and Grimes"
+              },
+              "article": {
+                "id": 100001,
+                "articleNumber": 44,
+                "description": "Won Credit Card Account Taka",
+                "measurementUnit": {
+                  "id": 43,
+                  "description": "mg",
+                  "baseUnit": {
+                    "id": 489,
+                    "description": "Gewicht"
+                  }
+                },
+                "material": {
+                  "id": 100002,
+                  "materialNumber": 282,
+                  "materialDescription": "Idaho Generic Concrete Chair Cambridgeshire",
+                  "wasteDescription": "initiative Producer HDD",
+                  "wasteCode": "589331"
+                }
+              },
+              "quantity": 763,
+              "measurementUnit": {
+                "id": 201,
+                "description": "m",
+                "baseUnit": {
+                  "id": 35,
+                  "description": "Gewicht"
+                }
+              },
+              "weighings": [
+                {
+                  "id": 158,
+                  "type": "TARE_WEIGHING",
+                  "netWeight": {
+                    "value": 21.63854,
+                    "measurementUnit": {
+                      "id": 201,
+                      "description": "m",
+                      "baseUnit": {
+                        "id": 35,
+                        "description": "Gewicht"
+                      }
+                    }
+                  },
+                  "measurements": [
+                    {
+                      "id": 20,
+                      "timestamp": "2018-03-09T09:08:41.649Z",
+                      "weight": {
+                        "value": 51.785,
+                        "measurementUnit": {
+                          "id": 312,
+                          "description": "mg",
+                          "baseUnit": {
+                            "id": 342,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "alibiNumber": "3075",
+                      "weighingDevice": {
+                        "id": 54,
+                        "deviceId": 317,
+                        "name": "594s7qvm0dzvd4m63ogz",
+                        "branchIds": [
+                          240,
+                          438
+                        ]
+                      },
+                      "measurementType": "GROSS_MEASUREMENT",
+                      "captureType": "WEIGHING"
+                    }
+                  ]
+                }
+              ],
+              "unitPrice": {
+                "amount": 406,
+                "currency": {
+                  "id": 390,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              },
+              "subTotal": {
+                "amount": 268,
+                "currency": {
+                  "id": 395,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ],
+          "organizationalUnit": {
+            "id": 1,
+            "name": "Organisationseinheit"
+          },
+          "total": {
+            "amount": 442,
+            "currency": {
+              "id": 438,
+              "name": "Euro",
+              "isoCode": "EUR",
+              "symbol": "\u20ac"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update a WeighingOrder with a different ID",
+      "providerState": "weighingOrder 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/weighing-service/api/weighing-orders/45",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "status": "open",
+          "creationDate": "2018-03-09T07:56:36.896Z",
+          "licensePlate": "q5546u2wpw",
+          "weighingOrderItems": [
+            {
+              "id": 349,
+              "plant": {
+                "id": 100003,
+                "description": "Hirthe - Corwin"
+              },
+              "article": {
+                "id": 100001,
+                "articleNumber": 31,
+                "description": "Customer SMTP Bacon",
+                "measurementUnit": {
+                  "id": 133,
+                  "description": "Stück",
+                  "baseUnit": {
+                    "id": 236,
+                    "description": "Gewicht"
+                  }
+                },
+                "material": {
+                  "id": 100001,
+                  "materialNumber": 120,
+                  "materialDescription": "Belarussian Ruble Product bypassing",
+                  "wasteDescription": "revolutionary Rapid mesh",
+                  "wasteCode": "286357"
+                }
+              },
+              "quantity": 1793,
+              "measurementUnit": {
+                "id": 395,
+                "description": "m",
+                "baseUnit": {
+                  "id": 494,
+                  "description": "Gewicht"
+                }
+              },
+              "weighings": [
+                {
+                  "id": 24,
+                  "type": "TARE_WEIGHING",
+                  "netWeight": {
+                    "value": 69.88856,
+                    "measurementUnit": {
+                      "id": 395,
+                      "description": "m",
+                      "baseUnit": {
+                        "id": 494,
+                        "description": "Gewicht"
+                      }
+                    }
+                  },
+                  "measurements": [
+                    {
+                      "id": 438,
+                      "timestamp": "2018-03-08T16:27:56.880Z",
+                      "weight": {
+                        "value": 14.61773,
+                        "measurementUnit": {
+                          "id": 435,
+                          "description": "Stück",
+                          "baseUnit": {
+                            "id": 138,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "alibiNumber": "727",
+                      "weighingDevice": {
+                        "id": 100,
+                        "deviceId": 268,
+                        "name": "yh9yl4pjhxyozeb5sd51",
+                        "branchIds": [
+                          357,
+                          82
+                        ]
+                      },
+                      "measurementType": "GROSS_MEASUREMENT",
+                      "captureType": "WEIGHING"
+                    }
+                  ]
+                }
+              ],
+              "unitPrice": {
+                "amount": 322,
+                "currency": {
+                  "id": 233,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              },
+              "subTotal": {
+                "amount": 80,
+                "currency": {
+                  "id": 345,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ],
+          "organizationalUnit": {
+            "id": 1,
+            "name": "Organisationseinheit"
+          },
+          "total": {
+            "amount": 372,
+            "currency": {
+              "id": 380,
+              "name": "Euro",
+              "isoCode": "EUR",
+              "symbol": "\u20ac"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "PathIdDoesNotMatchPayload"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list WeighingOrders",
+      "providerState": "a list of weighingOrders exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighing-orders",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 58,
+              "status": "open",
+              "creationDate": "2018-03-08T15:25:38.814Z",
+              "licensePlate": "co01xxqqw3",
+              "weighingOrderItems": [
+                {
+                  "id": 164,
+                  "plant": {
+                    "id": 100001,
+                    "description": "Schultz LLC"
+                  },
+                  "article": {
+                    "id": 100002,
+                    "articleNumber": 159,
+                    "description": "Markets Customer Chile",
+                    "measurementUnit": {
+                      "id": 223,
+                      "description": "l",
+                      "baseUnit": {
+                        "id": 113,
+                        "description": "Gewicht"
+                      }
+                    },
+                    "material": {
+                      "id": 100001,
+                      "materialNumber": 158,
+                      "materialDescription": "deposit payment calculate",
+                      "wasteDescription": "Handmade Steel Bike online deliverables",
+                      "wasteCode": "546518"
+                    }
+                  },
+                  "quantity": 541,
+                  "measurementUnit": {
+                    "id": 240,
+                    "description": "m",
+                    "baseUnit": {
+                      "id": 204,
+                      "description": "Gewicht"
+                    }
+                  },
+                  "weighings": [
+                    {
+                      "id": 301,
+                      "type": "TARE_WEIGHING",
+                      "netWeight": {
+                        "value": 31.4555,
+                        "measurementUnit": {
+                          "id": 240,
+                          "description": "m",
+                          "baseUnit": {
+                            "id": 204,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "measurements": [
+                        {
+                          "id": 423,
+                          "timestamp": "2018-03-09T07:36:13.011Z",
+                          "weight": {
+                            "value": 93.48954,
+                            "measurementUnit": {
+                              "id": 220,
+                              "description": "t",
+                              "baseUnit": {
+                                "id": 435,
+                                "description": "Gewicht"
+                              }
+                            }
+                          },
+                          "alibiNumber": "3005",
+                          "weighingDevice": {
+                            "id": 485,
+                            "deviceId": 161,
+                            "name": "m0euxt00c71bmcshwhno",
+                            "branchIds": [
+                              164,
+                              211
+                            ]
+                          },
+                          "measurementType": "GROSS_MEASUREMENT",
+                          "captureType": "WEIGHING"
+                        }
+                      ]
+                    }
+                  ],
+                  "unitPrice": {
+                    "amount": 182,
+                    "currency": {
+                      "id": 387,
+                      "name": "Euro",
+                      "isoCode": "EUR",
+                      "symbol": "\u20ac"
+                    }
+                  },
+                  "subTotal": {
+                    "amount": 132,
+                    "currency": {
+                      "id": 351,
+                      "name": "Euro",
+                      "isoCode": "EUR",
+                      "symbol": "\u20ac"
+                    }
+                  }
+                }
+              ],
+              "organizationalUnit": {
+                "id": 1,
+                "name": "Organisationseinheit"
+              },
+              "total": {
+                "amount": 286,
+                "currency": {
+                  "id": 445,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list WeighingOrders filtered by organizationalUnit 42",
+      "providerState": "a list of weighingOrders for organizationalUnit 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighing-orders",
+        "query": "page=0&size=1&organizationalUnitId=42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 140,
+              "status": "open",
+              "creationDate": "2018-03-09T05:52:17.691Z",
+              "licensePlate": "ru7z6qs1k3",
+              "weighingOrderItems": [
+                {
+                  "id": 440,
+                  "plant": {
+                    "id": 100003,
+                    "description": "Stroman and Sons"
+                  },
+                  "article": {
+                    "id": 100001,
+                    "articleNumber": 355,
+                    "description": "Avon capacitor Lari",
+                    "measurementUnit": {
+                      "id": 351,
+                      "description": "m",
+                      "baseUnit": {
+                        "id": 294,
+                        "description": "Gewicht"
+                      }
+                    },
+                    "material": {
+                      "id": 100001,
+                      "materialNumber": 435,
+                      "materialDescription": "generate Metal Supervisor",
+                      "wasteDescription": "Avon global GB",
+                      "wasteCode": "080776"
+                    }
+                  },
+                  "quantity": 563,
+                  "measurementUnit": {
+                    "id": 185,
+                    "description": "l",
+                    "baseUnit": {
+                      "id": 344,
+                      "description": "Gewicht"
+                    }
+                  },
+                  "weighings": [
+                    {
+                      "id": 414,
+                      "type": "TARE_WEIGHING",
+                      "netWeight": {
+                        "value": 55.92862,
+                        "measurementUnit": {
+                          "id": 185,
+                          "description": "l",
+                          "baseUnit": {
+                            "id": 344,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "measurements": [
+                        {
+                          "id": 72,
+                          "timestamp": "2018-03-09T09:10:33.443Z",
+                          "weight": {
+                            "value": 99.36366,
+                            "measurementUnit": {
+                              "id": 147,
+                              "description": "m",
+                              "baseUnit": {
+                                "id": 86,
+                                "description": "Gewicht"
+                              }
+                            }
+                          },
+                          "alibiNumber": "1904",
+                          "weighingDevice": {
+                            "id": 404,
+                            "deviceId": 50,
+                            "name": "fmhx9k0igm5s642lax6e",
+                            "branchIds": [
+                              243,
+                              105
+                            ]
+                          },
+                          "measurementType": "GROSS_MEASUREMENT",
+                          "captureType": "WEIGHING"
+                        }
+                      ]
+                    }
+                  ],
+                  "unitPrice": {
+                    "amount": 346,
+                    "currency": {
+                      "id": 330,
+                      "name": "Euro",
+                      "isoCode": "EUR",
+                      "symbol": "\u20ac"
+                    }
+                  },
+                  "subTotal": {
+                    "amount": 316,
+                    "currency": {
+                      "id": 102,
+                      "name": "Euro",
+                      "isoCode": "EUR",
+                      "symbol": "\u20ac"
+                    }
+                  }
+                }
+              ],
+              "organizationalUnit": {
+                "id": 1,
+                "name": "Organisationseinheit"
+              },
+              "total": {
+                "amount": 216,
+                "currency": {
+                  "id": 359,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for WeighingOrder 42",
+      "providerState": "weighingOrder 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighing-orders/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "status": "open",
+          "creationDate": "2018-03-08T16:32:56.908Z",
+          "licensePlate": "7n55xkdrdp",
+          "weighingOrderItems": [
+            {
+              "id": 475,
+              "plant": {
+                "id": 100003,
+                "description": "Kuvalis and Sons"
+              },
+              "article": {
+                "id": 100002,
+                "articleNumber": 429,
+                "description": "Aruba blue connecting",
+                "measurementUnit": {
+                  "id": 313,
+                  "description": "mg",
+                  "baseUnit": {
+                    "id": 358,
+                    "description": "Gewicht"
+                  }
+                },
+                "material": {
+                  "id": 100001,
+                  "materialNumber": 359,
+                  "materialDescription": "generate Incredible Granite Mouse programming",
+                  "wasteDescription": "Investment Account throughput sky blue",
+                  "wasteCode": "790177"
+                }
+              },
+              "quantity": 666,
+              "measurementUnit": {
+                "id": 493,
+                "description": "m",
+                "baseUnit": {
+                  "id": 36,
+                  "description": "Gewicht"
+                }
+              },
+              "weighings": [
+                {
+                  "id": 78,
+                  "type": "TARE_WEIGHING",
+                  "netWeight": {
+                    "value": 24.49075,
+                    "measurementUnit": {
+                      "id": 493,
+                      "description": "m",
+                      "baseUnit": {
+                        "id": 36,
+                        "description": "Gewicht"
+                      }
+                    }
+                  },
+                  "measurements": [
+                    {
+                      "id": 277,
+                      "timestamp": "2018-03-08T16:02:33.077Z",
+                      "weight": {
+                        "value": 86.66136,
+                        "measurementUnit": {
+                          "id": 438,
+                          "description": "mg",
+                          "baseUnit": {
+                            "id": 6,
+                            "description": "Gewicht"
+                          }
+                        }
+                      },
+                      "alibiNumber": "4637",
+                      "weighingDevice": {
+                        "id": 247,
+                        "deviceId": 123,
+                        "name": "e37erx42oamipropa8gk",
+                        "branchIds": [
+                          10,
+                          191
+                        ]
+                      },
+                      "measurementType": "GROSS_MEASUREMENT",
+                      "captureType": "WEIGHING"
+                    }
+                  ]
+                }
+              ],
+              "unitPrice": {
+                "amount": 396,
+                "currency": {
+                  "id": 299,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              },
+              "subTotal": {
+                "amount": 484,
+                "currency": {
+                  "id": 286,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "\u20ac"
+                }
+              }
+            }
+          ],
+          "organizationalUnit": {
+            "id": 1,
+            "name": "Organisationseinheit"
+          },
+          "total": {
+            "amount": 150,
+            "currency": {
+              "id": 423,
+              "name": "Euro",
+              "isoCode": "EUR",
+              "symbol": "\u20ac"
+            }
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for WeighingOrder 42 ",
+      "providerState": "weighingOrder 42 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/weighing-orders/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a POST for completion of weighing order 4711",
+      "providerState": "weighing order 4711 exists and is completable",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-orders/4711/complete"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/pdf"
+        }
+      }
+    },
+    {
+      "description": "a POST for completion of weighing order 4711",
+      "providerState": "weighing order 4711 exists but is not completable",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-orders/4711/complete"
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a POST for completion of weighing order 4711",
+      "providerState": "weighing order 4711 does not exist",
+      "request": {
+        "method": "POST",
+        "path": "/weighing-service/api/weighing-orders/4711/complete"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list yard list entries",
+      "providerState": "a list of yard list entries filtered by organizational unit id exists ",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/yardlist",
+        "query": "page=0&size=1&organizationalUnitId=3"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "weighingOrderId": 437,
+              "creationDate": "2018-03-09T09:39:06.507Z",
+              "licensePlate": "rcym3dpgun"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list yard list entries",
+      "providerState": "a list of yard list entries exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/yardlist",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "weighingOrderId": 374,
+              "creationDate": "2018-03-09T03:20:53.517Z",
+              "licensePlate": "hyl7li49xp"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list yard list entries filtered by organizationalUnit 42",
+      "providerState": "a list of yard list entries for organizationalUnit 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/weighing-service/api/yardlist",
+        "query": "page=0&size=1&organizationalUnitId=42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "weighingOrderId": 215,
+              "creationDate": "2018-03-09T00:44:27.755Z",
+              "licensePlate": "cisyc79w9u"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

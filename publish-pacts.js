@@ -20,6 +20,10 @@ if (tag === undefined) {
 
 replaceSpecialCharacters();
 publishPact(pactFolder + '/ui-article.json');
+publishPact(pactFolder + '/ui-organization.json');
+publishPact(pactFolder + '/ui-plant.json');
+publishPact(pactFolder + '/ui-user.json');
+publishPact(pactFolder + '/ui-weighing.json');
 
 /**
  * Veröffentlicht die Pacts auf dem Pact Broker.

@@ -1,0 +1,659 @@
+{
+  "consumer": {
+    "name": "testconsumer"
+  },
+  "provider": {
+    "name": "testprovider5"
+  },
+  "interactions": [
+    {
+      "description": "a GET request to list permissions",
+      "providerState": "a list of permissions exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/permissions",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 381,
+              "code": "tk0mo8eb474raezl50vez2r96g7wy8rqebfatw1iue1sd4cmee",
+              "displayName": "afyfgku1esrlijejmgibj2pxocjpeln26b9x1gcg3oats5giob6xf3oc579ftqmkbz13rt3ilu27gu3x6y3cgk9d8en9z37iwa1bkk0l3xsqlscq0kh3sfttqcykrgnh2te6pto8y3511oajh2tqcbsssend82cs1nnp8jtrkm8i5s1dh03t6787baaojdnr6b33w7z6",
+              "description": "35did9ftvx8a61jxmskvmhxwod12oy8soxmzc4bko3itboc2npg6jx1s6kpp73tukbry2gxyab2ednd1yaogq3jairnzhk82xp1hdot3s5fosridddy9dzrqvsasuy1panb62tpw44nktxadxip0tkca9lpmo9n25pgwwr3jw25wdhrvgxu557d3jqn0pvwltd2nrgd90tw4e2c0tsacutgb1c7kjoh2z531cy2ianwi1ie8bqtkm2ei5zcetb6imqair4togebhciuai1nsn19aqxopf8emucm70jb527enjkyoay7r96oeouzjbbt31043qws3po9n2b9lfx54gxariioof4wk1f94klpzk8rteqg21m9in06cn8r0nndgd2m4joz9bjzrasqev3mbxvscr8e1y1jnrcpdgzumq29ak6we3ta2cvzavnpjk4po7a7r0uzd7fqdzgkodzo0kem0qbmu2orenhj49yo2q3i7rhyr5kkx"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a role",
+      "providerState": "provider allows creating a role",
+      "request": {
+        "method": "POST",
+        "path": "/user-service/api/roles",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "displayName": "8gu6zn9jn9z6drd9babhrldvymt5cno3goynzhnicakbkibwornsl67usg3o3j5fhy1s9b5mjxxqzju5p5sv0s9dj3hm2httnj5gmdkyxbd62ov8vb801c92d2dj8qhpu6e6f49ngesv4qiiomgxl4tjziaukhv42j7anspg8vwfpxnro2ek3itoii33l7n9tom49tq1",
+          "permissionIds": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a role with specified ID",
+      "providerState": "provider allows creating a role",
+      "request": {
+        "method": "POST",
+        "path": "/user-service/api/roles",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 466,
+          "displayName": "ravsv9v6fymfdwur64693hn0w4creia7xqzhmn442c7c3ny4qvt6yjtjkbjbvykedcdaix397334lufdicxs967mtsozw0snpym9b4y8lf0mir1k9dqp6w62oy91iurf93h9h4agvda9rwb4he1rx0eyrvkx7mp4jwbo6gup1f3isgru8eue5udrtwcb6rt10s3rqbmh",
+          "permissionIds": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "IdMustBeNull"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update role 42",
+      "providerState": "role 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/user-service/api/roles/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "displayName": "nf3u8as6bnn2bg1r3j2sl2yai3pelx1iibfkf82bxs8y5d74m3yd2qwewvpekndn0uay5fhyy2famonjsgbk7fderu3bgzvbo7iit40vozp53bxbi7xyws4k93069s97stu2lv4cnwesgltwpynhhj3nxk70llixycreud6zs59daqx4fwbd13x1qw7kxnwl6a5cofzo",
+          "permissionIds": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update role 42",
+      "providerState": "role 42 does not exist",
+      "request": {
+        "method": "PUT",
+        "path": "/user-service/api/roles/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "displayName": "ss89ms2k48o8oq3l2hkynhedxe8lqo9pqv7ht0dqdwtrfuqq4r2bqgcgka1zmpd2yvykoo3wxqqi4gh77xnxp3sinfcrz3enpprfxplyami7y5d57ql205tfcgqvk6arnhcafuja7erh93tpcjz31f6jz4dm7ndx76rrp6qr1yo49aei8qgvt9floabhebz3e3hcz2td",
+          "permissionIds": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update a role with a different ID",
+      "providerState": "role 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/user-service/api/roles/45",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "displayName": "5sg6u2n6ze9f62phqnml90idz66blvi84hic6x162vkfz6r4ma1k873fx98pc2w1y0sz44l34jbuitdfms3nh20jhttnvvkn3vvmantt4cbx8nqt98hensn3oqa9hxc7mdril30dpo8okvu1nli89c6tjq6wq5y027fgf478wib455fnbj1pgd4qgfb6dlp01jn9ygz9",
+          "permissionIds": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "PathIdDoesNotMatchPayload"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list roles",
+      "providerState": "a list of roles exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/roles",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 301,
+              "displayName": "q8s74jartnh42b5n4ywn11my7fy02dnlwhttlz6xzxagup486alcnx5uatnt92iydpo3varodgga09r7hf9uny11mfzr0rwcrv9ocrixlt835iffrvc6obppgs8e8rg66ur901jj33v8a01865nsrwp9rlp22tiqhwxudn2s5m8pvov6qpi2a4hq24ib66ynxvzw1bkk",
+              "permissionIds": [
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for role 42",
+      "providerState": "role 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/roles/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "displayName": "dqqwuu27jxb8xzfhfeljhrpzqxy5tkoot0v3m2f8wpg4obvezjd5livabcdohg9zvbmiqdgz1ri5btf0wb4vnck0k1a42a2i6gd1nz3grcmkyauqwjkmrm0lmvktbgmoahfa1xu0xqct5viiaaqht1b1i3qh5xxtdxwuud4tbevckqgk2k9ympftoaxobwiv7qlcy2x5",
+          "permissionIds": [
+            1,
+            2,
+            3
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for role 42 ",
+      "providerState": "role 42 does not exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/roles/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list organizational units",
+      "providerState": "a list of organizational units exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/organizational-units",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "name": "Organisationseinheit"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a user",
+      "providerState": "provider allows creating a user",
+      "request": {
+        "method": "POST",
+        "path": "/user-service/api/users",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "firstName": "Leona",
+          "lastName": "Bräutigam",
+          "loginName": "x7bdqjyz3s",
+          "domain": "k35hcnm759p45au7ysairbqphuwaalkudrpxgnu3r53jsj2t4crny5qgfl451lo982f1icqftvxrs2awy6oncb0hvra9a8r4sivg",
+          "rolesInOrganisationalUnits": [
+            {
+              "roleId": 1,
+              "organizationalUnits": [
+                {
+                  "id": 2,
+                  "name": "x0pgag0jzujufhji9du927564cumh0"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a user with specified ID",
+      "providerState": "provider allows creating a user",
+      "request": {
+        "method": "POST",
+        "path": "/user-service/api/users",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 381,
+          "firstName": "Leon",
+          "lastName": "Reinberg",
+          "loginName": "ss455tl5d7",
+          "domain": "s0fsp3eracp1naqehnz716cuzh07gnjq3abqb9l4k7xp6d578aerjxvr5pwvh2rb7yuli8319motwqutdnuxiiic9qcn32lz1bth",
+          "rolesInOrganisationalUnits": [
+            {
+              "roleId": 1,
+              "organizationalUnits": [
+                {
+                  "id": 2,
+                  "name": "o2ib0bu72iofcz9eeyun4d5xh4lba8"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "IdMustBeNull"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update user 42",
+      "providerState": "user 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/user-service/api/users/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "firstName": "Cora",
+          "lastName": "Bayer",
+          "loginName": "dwh6knlb01",
+          "domain": "2mm93hhkp0yk7zctgekb8s8r2orlurr6hcamm2zo9p1eltxzsvqm8k8h51f3bw60vvdhrgwk6ym8rfsi9zk13ex6uxe609u7lutt",
+          "rolesInOrganisationalUnits": [
+            {
+              "roleId": 1,
+              "organizationalUnits": [
+                {
+                  "id": 2,
+                  "name": "pvadky5p4pr9ub5ss944d7luqt59iw"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update user 42",
+      "providerState": "user 42 does not exist",
+      "request": {
+        "method": "PUT",
+        "path": "/user-service/api/users/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "firstName": "Leana",
+          "lastName": "Maurer",
+          "loginName": "l1q3wc9j0h",
+          "domain": "j9sxxz0hm1dlzir2dooej5jylae444cj1lbxpp1wwwh5mily5225ky36h7q42wpsrhgdg6jb0wj0fs0h01amthmgggf4qdmpanww",
+          "rolesInOrganisationalUnits": [
+            {
+              "roleId": 1,
+              "organizationalUnits": [
+                {
+                  "id": 2,
+                  "name": "f5ffs2u7a3ylhlnvz5bgxr2adhdtqd"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update user with unmatching IDs",
+      "providerState": "user 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/user-service/api/users/45",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "firstName": "Gianluca",
+          "lastName": "Habel",
+          "loginName": "xdrgur89wx",
+          "domain": "xux0cckuoqmhkypnqrd2iwu2g7ofe4u62j4h9hy04fi69sr3vqggwfip7er07p5t894gl3k8jyo7i0h0ttipnhb28awmczc1d7ph",
+          "rolesInOrganisationalUnits": [
+            {
+              "roleId": 1,
+              "organizationalUnits": [
+                {
+                  "id": 2,
+                  "name": "tu6jk9ohjosfq7sp36r2fmgzxx0k7g"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "PathIdDoesNotMatchPayload"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list users",
+      "providerState": "a list of users exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/users",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 368,
+              "firstName": "Tom",
+              "lastName": "Vater",
+              "loginName": "gnq4rjo8kj",
+              "domain": "y8gi8ubk58vxyf2q1caqwpy8e0oj19r4pixdrbqswlli2g39krn3ih4aunmj3fmyi4igfwqoq9g3wo0f5b6kz7dgvf7bvmq4hvzc",
+              "rolesInOrganisationalUnits": [
+                {
+                  "roleId": 1,
+                  "organizationalUnits": [
+                    {
+                      "id": 2,
+                      "name": "gacsygqb1szifjfr5xw5k22wlfnroo"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for user 42",
+      "providerState": "user 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/users/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "firstName": "Arthur",
+          "lastName": "Borrmann",
+          "loginName": "bg3oaxgvc0",
+          "domain": "ika3ufu4nb8jrvev1evpwp33perai3dub00b3ujgviay1w7n19b5umcl7c5rfo6fzxhd36enjy71nc61rclobtmy00tz5yzzvlgy",
+          "rolesInOrganisationalUnits": [
+            {
+              "roleId": 1,
+              "organizationalUnits": [
+                {
+                  "id": 2,
+                  "name": "y9v8ik25b9hp4r9wbl75aqkj01nsah"
+                }
+              ]
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for user 42 ",
+      "providerState": "user 42 does not exists",
+      "request": {
+        "method": "GET",
+        "path": "/user-service/api/users/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
