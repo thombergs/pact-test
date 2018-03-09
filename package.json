@@ -1,0 +1,13 @@
+{
+  "name": "pact-publish-test",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "publish:pacts": "node publish-pacts.js stable"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@pact-foundation/pact-node": "6.11.0"
+  }
+}

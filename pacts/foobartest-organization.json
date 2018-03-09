@@ -1,0 +1,537 @@
+{
+  "consumer": {
+    "name": "foobartest"
+  },
+  "provider": {
+    "name": "organization"
+  },
+  "interactions": [
+    {
+      "description": "a POST request to create a branch",
+      "providerState": "provider allows creating a branch",
+      "request": {
+        "method": "POST",
+        "path": "/organization-service/api/branches",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Geschäftsstelle Lünen",
+          "companyId": 42,
+          "companyName": "REMONDIS IT-Services GmbH",
+          "address": {
+            "houseNumber": "142 am Eck",
+            "street": "Musterstr.",
+            "city": "Großhintertupfingen",
+            "zipCode": "1111",
+            "countryCode": "EN"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update branch 42",
+      "providerState": "branch 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/organization-service/api/branches/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "name": "Geschäftsstelle Lünen",
+          "companyId": 42,
+          "companyName": "REMONDIS IT-Services GmbH",
+          "address": {
+            "houseNumber": "142 am Eck",
+            "street": "Musterstr.",
+            "city": "Großhintertupfingen",
+            "zipCode": "1111",
+            "countryCode": "EN"
+          }
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list branches",
+      "providerState": "a list of branches exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/branches",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 142,
+              "name": "Geschäftsstelle Lünen",
+              "companyId": 42,
+              "companyName": "REMONDIS IT-Services GmbH",
+              "address": {
+                "houseNumber": "142 am Eck",
+                "street": "Musterstr.",
+                "city": "Großhintertupfingen",
+                "zipCode": "1111",
+                "countryCode": "EN"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET branch 42",
+      "providerState": "branch 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/branches/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "name": "Diekmann AG",
+          "companyId": 54,
+          "companyName": "Huhn - Kuhlee",
+          "address": {
+            "houseNumber": "168",
+            "street": "Danilo Canyon",
+            "city": "Neu Kimberly",
+            "zipCode": "66621",
+            "countryCode": "GI"
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a company",
+      "providerState": "provider allows creating a company",
+      "request": {
+        "method": "POST",
+        "path": "/organization-service/api/companies",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "companyNumber": 456,
+          "name": "REMONDIS IT-Services GmbH",
+          "address": {
+            "houseNumber": "142 am Eck",
+            "street": "Musterstr.",
+            "city": "Großhintertupfingen",
+            "zipCode": "1111",
+            "countryCode": "EN"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update company 42",
+      "providerState": "company 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/organization-service/api/companies/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "companyNumber": 456,
+          "name": "REMONDIS IT-Services GmbH",
+          "address": {
+            "houseNumber": "142 am Eck",
+            "street": "Musterstr.",
+            "city": "Großhintertupfingen",
+            "zipCode": "1111",
+            "countryCode": "EN"
+          }
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list companies",
+      "providerState": "a list of companies exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/companies",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 456,
+              "companyNumber": 456,
+              "name": "REMONDIS IT-Services GmbH",
+              "address": {
+                "houseNumber": "142 am Eck",
+                "street": "Musterstr.",
+                "city": "Großhintertupfingen",
+                "zipCode": "1111",
+                "countryCode": "EN"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET company 42",
+      "providerState": "company 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/companies/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "companyNumber": 906503,
+          "name": "Kettenis, Feld and Boxhammer",
+          "address": {
+            "houseNumber": "93",
+            "street": "Nelly Village",
+            "city": "Alt Tony",
+            "zipCode": "18561",
+            "countryCode": "CO"
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a facility",
+      "providerState": "provider allows creating a facility",
+      "request": {
+        "method": "POST",
+        "path": "/organization-service/api/facilities",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Brauer - Derr",
+          "branchId": 355,
+          "branchName": "Biesenbach - Soller",
+          "address": {
+            "houseNumber": "69",
+            "street": "Rania Drives",
+            "city": "Ruthland",
+            "zipCode": "85861",
+            "countryCode": "GI"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update facility 42",
+      "providerState": "facility 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/organization-service/api/facilities/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "name": "Holl, Hehl and Lorenz",
+          "branchId": 266,
+          "branchName": "Schellenbeck GmbH & Co. KG",
+          "address": {
+            "houseNumber": "95",
+            "street": "Sandy Shores",
+            "city": "Tischlerscheid",
+            "zipCode": "17233",
+            "countryCode": "RS"
+          }
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list facilities",
+      "providerState": "a list of facilities exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/facilities",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 143,
+              "name": "Rodehau, Gaba and Liebold",
+              "branchId": 270,
+              "branchName": "Vogelgsang, Seigel and Haferkamp",
+              "address": {
+                "houseNumber": "121",
+                "street": "Elisabeth Terrace",
+                "city": "Grieseburg",
+                "zipCode": "39082",
+                "countryCode": "MD"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET facility 42",
+      "providerState": "facility 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/facilities/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "name": "Sammert GmbH",
+          "branchId": 230,
+          "branchName": "Franzis GmbH & Co. KG",
+          "address": {
+            "houseNumber": "73",
+            "street": "Betz Extension",
+            "city": "Reiberburg",
+            "zipCode": "03382",
+            "countryCode": "MC"
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create an organizational unit",
+      "providerState": "provider allows creating an organizational unit",
+      "request": {
+        "method": "POST",
+        "path": "/organization-service/api/organizational-units",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Organisationseinheit"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update an organizational unit 42",
+      "providerState": "organizational unit 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/organization-service/api/organizational-units/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "name": "Organisationseinheit"
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list organizational units",
+      "providerState": "a list of organizational units exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/organizational-units",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "name": "Organisationseinheit"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for organizational unit 42",
+      "providerState": "organizational unit 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/organization-service/api/organizational-units/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "name": "Organisationseinheit"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

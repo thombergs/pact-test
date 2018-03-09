@@ -1,0 +1,9 @@
+image: git-ee.remondis-de.local:4567/renew/docker-images/node9.5.0-chrome
+
+stages:
+  - publish
+
+publish-pacts:
+  stage: publish
+  script:
+    - npm run publish:pacts

@@ -1,0 +1,1640 @@
+{
+  "consumer": {
+    "name": "foobartest"
+  },
+  "provider": {
+    "name": "article"
+  },
+  "interactions": [
+    {
+      "description": "a POST request to create an article position price",
+      "providerState": "provider allows creating an article position price",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/article-position-prices",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "articlePositionId": 1,
+          "organizationalUnit": {
+            "id": 7,
+            "name": "Organisationseinheit"
+          },
+          "price": 12.12,
+          "currency": {
+            "id": 344,
+            "name": "Euro",
+            "isoCode": "EUR",
+            "symbol": "€"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update article position price 42",
+      "providerState": "article position price 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/article-position-prices/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "articlePositionId": 1,
+          "organizationalUnit": {
+            "id": 7,
+            "name": "Organisationseinheit"
+          },
+          "price": 12.12,
+          "currency": {
+            "id": 484,
+            "name": "Euro",
+            "isoCode": "EUR",
+            "symbol": "€"
+          }
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list article position prices",
+      "providerState": "a list of article position prices exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/article-position-prices",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "articlePositionId": 1,
+              "organizationalUnit": {
+                "id": 7,
+                "name": "Organisationseinheit"
+              },
+              "price": 12.12,
+              "currency": {
+                "id": 449,
+                "name": "Euro",
+                "isoCode": "EUR",
+                "symbol": "€"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list article prices",
+      "providerState": "a list of article prices exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/articles/prices",
+        "query": "orgUnitId=5&page=2&size=3"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "articleId": 42,
+              "articleName": "Bauschutt entsorgen",
+              "articleNumber": 324234,
+              "measurementUnit": {
+                "id": 123,
+                "description": "kg",
+                "baseUnit": {
+                  "id": 1,
+                  "description": "Gewicht"
+                }
+              },
+              "articlePositionPrice": {
+                "id": 1,
+                "articlePositionId": 1,
+                "organizationalUnit": {
+                  "id": 7,
+                  "name": "Organisationseinheit"
+                },
+                "price": 12.12,
+                "currency": {
+                  "id": 34,
+                  "name": "Euro",
+                  "isoCode": "EUR",
+                  "symbol": "€"
+                }
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET article position price 42",
+      "providerState": "article position price 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/article-position-prices/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "articlePositionId": 1,
+          "organizationalUnit": {
+            "id": 7,
+            "name": "Organisationseinheit"
+          },
+          "price": 12.12,
+          "currency": {
+            "id": 360,
+            "name": "Euro",
+            "isoCode": "EUR",
+            "symbol": "€"
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create an article",
+      "providerState": "provider allows creating an article",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/articles",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": null,
+          "description": "Grünschnitt kompostieren",
+          "articlePosition": [
+            {
+              "id": null,
+              "materialId": 1,
+              "service": {
+                "id": 1,
+                "description": "kompostieren"
+              },
+              "measurementUnit": {
+                "id": 123,
+                "description": "kg",
+                "baseUnit": {
+                  "id": 1,
+                  "description": "Gewicht"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update article 42",
+      "providerState": "article 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/articles/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "articleNumber": 123456789,
+          "description": "Grünschnitt kompostieren",
+          "articlePosition": [
+            {
+              "id": 1,
+              "materialId": 1,
+              "service": {
+                "id": 1,
+                "description": "kompostieren"
+              },
+              "measurementUnit": {
+                "id": 123,
+                "description": "kg",
+                "baseUnit": {
+                  "id": 1,
+                  "description": "Gewicht"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update article 42 without articleNumber",
+      "providerState": "article 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/articles/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "description": "Grünschnitt kompostieren",
+          "articlePosition": [
+            {
+              "id": 1,
+              "materialId": 1,
+              "service": {
+                "id": 1,
+                "description": "kompostieren"
+              },
+              "measurementUnit": {
+                "id": 123,
+                "description": "kg",
+                "baseUnit": {
+                  "id": 1,
+                  "description": "Gewicht"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list articles",
+      "providerState": "a list of articles exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/articles",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "articleNumber": 123456789,
+              "description": "Grünschnitt kompostieren",
+              "articlePosition": [
+                {
+                  "id": 1,
+                  "materialId": 1,
+                  "service": {
+                    "id": 1,
+                    "description": "kompostieren"
+                  },
+                  "measurementUnit": {
+                    "id": 123,
+                    "description": "kg",
+                    "baseUnit": {
+                      "id": 1,
+                      "description": "Gewicht"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET article 42",
+      "providerState": "article 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/articles/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "articleNumber": 123456789,
+          "description": "Grünschnitt kompostieren",
+          "articlePosition": [
+            {
+              "id": 1,
+              "materialId": 1,
+              "service": {
+                "id": 1,
+                "description": "kompostieren"
+              },
+              "measurementUnit": {
+                "id": 123,
+                "description": "kg",
+                "baseUnit": {
+                  "id": 1,
+                  "description": "Gewicht"
+                }
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list currencies",
+      "providerState": "a list of currencies exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/currencies",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 281,
+              "name": "Euro",
+              "isoCode": "EUR",
+              "symbol": "€"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list measurement units",
+      "providerState": "a list of measurement units exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/measurement-units",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 123,
+              "description": "kg",
+              "baseUnit": {
+                "id": 1,
+                "description": "Gewicht"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list organizational units",
+      "providerState": "a list of organizational units exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/organizational-units",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 7,
+              "name": "Organisationseinheit"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET organizational unit 42",
+      "providerState": "organizational unit 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/organizational-units/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "name": "Organisationseinheit"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list services",
+      "providerState": "a list of services exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/services",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "description": "kompostieren"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a materialGroup",
+      "providerState": "provider allows creating a materialGroup",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/material-groups",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "description": "Metalle"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a materialGroup with specified ID",
+      "providerState": "provider allows creating a materialGroup",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/material-groups",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "description": "Metalle"
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "IdMustBeNull"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list materialGroups",
+      "providerState": "a list of materialGroups exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/material-groups",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "description": "Metalle"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET materialGroup 42",
+      "providerState": "materialGroup 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/material-groups/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "description": "Metalle"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for materialGroup 42 ",
+      "providerState": "materialGroup 42 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/material-groups/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a materialSubgroup",
+      "providerState": "provider allows creating a materialSubgroup",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/material-groups/1/material-subgroups",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "description": "Papier & Pappe",
+            "materialGroup": {
+              "id": 1,
+              "description": "Metalle"
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a materialSubgroup with specified ID",
+      "providerState": "provider allows creating a materialSubgroup",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/material-groups/1/material-subgroups",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "id": 42,
+            "description": "Papier & Pappe",
+            "materialGroup": {
+              "id": 1,
+              "description": "Metalle"
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "IdMustBeNull"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list materialSubgroups",
+      "providerState": "a list of materialSubgroups exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/material-subgroups",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "description": "Papier & Pappe",
+              "materialGroup": {
+                "id": 1,
+                "description": "Metalle"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET materialSubgroup 42",
+      "providerState": "materialSubgroup 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/material-subgroups/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "description": "Papier & Pappe",
+          "materialGroup": {
+            "id": 1,
+            "description": "Metalle"
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for materialSubgroup 42 ",
+      "providerState": "materialSubgroup 42 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/material-subgroups/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list materialSubgroups",
+      "providerState": "a list of materialSubgroups for specified group with id 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/material-groups/42/material-subgroups",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "description": "Papier & Pappe",
+              "materialGroup": {
+                "id": 1,
+                "description": "Metalle"
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a material",
+      "providerState": "provider allows creating a material",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/materials",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "description": "Baumischabfall schwer",
+          "wasteType": {
+            "id": 1,
+            "wasteCode": "112233",
+            "dangerous": true,
+            "description": "Gefährlicher Müll"
+          },
+          "materialGroup": {
+            "id": 1,
+            "description": "Metalle"
+          },
+          "materialSubgroup": null
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a material with specified ID",
+      "providerState": "provider allows creating a material",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/materials",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 100001,
+          "materialNumber": 1000000000,
+          "description": "Baumischabfall schwer",
+          "wasteType": {
+            "id": 1,
+            "wasteCode": "112233",
+            "dangerous": true,
+            "description": "Gefährlicher Müll"
+          },
+          "materialGroup": {
+            "id": 1,
+            "description": "Metalle"
+          },
+          "materialSubgroup": {
+            "id": 1,
+            "description": "Papier & Pappe",
+            "materialGroup": {
+              "id": 1,
+              "description": "Metalle"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "IdMustBeNull"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update material 42",
+      "providerState": "material 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/materials/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "materialNumber": 1000000000,
+          "description": "Baumischabfall schwer",
+          "wasteType": {
+            "id": 1,
+            "wasteCode": "112233",
+            "dangerous": false,
+            "description": "Normaler Müll"
+          },
+          "materialGroup": {
+            "id": 1,
+            "description": "Metalle"
+          },
+          "materialSubgroup": {
+            "id": 1,
+            "description": "Papier & Pappe",
+            "materialGroup": {
+              "id": 1,
+              "description": "Metalle"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update material 42",
+      "providerState": "material 42 does not exist",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/materials/42",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "materialNumber": 1000000000,
+          "description": "Baumischabfall schwer",
+          "wasteType": {
+            "id": 1,
+            "wasteCode": "112233",
+            "dangerous": true,
+            "description": "Gefährlicher Müll"
+          },
+          "materialGroup": {
+            "id": 1,
+            "description": "Metalle"
+          },
+          "materialSubgroup": {
+            "id": 1,
+            "description": "Papier & Pappe",
+            "materialGroup": {
+              "id": 1,
+              "description": "Metalle"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update a material with a different ID",
+      "providerState": "material 42 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/materials/45",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42,
+          "materialNumber": 1000000000,
+          "description": "Baumischabfall schwer",
+          "wasteType": {
+            "id": 1,
+            "wasteCode": "112233",
+            "dangerous": true,
+            "description": "Gefährlicher Müll"
+          },
+          "materialGroup": {
+            "id": 1,
+            "description": "Metalle"
+          },
+          "materialSubgroup": null
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "PathIdDoesNotMatchPayload"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list materials",
+      "providerState": "a list of materials exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/materials",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 100001,
+              "materialNumber": 1000000000,
+              "description": "Baumischabfall schwer",
+              "wasteType": {
+                "id": 1,
+                "wasteCode": "112233",
+                "dangerous": false,
+                "description": "Normaler Müll"
+              },
+              "materialGroup": {
+                "id": 1,
+                "description": "Metalle"
+              },
+              "materialSubgroup": {
+                "id": 1,
+                "description": "Papier & Pappe",
+                "materialGroup": {
+                  "id": 1,
+                  "description": "Metalle"
+                }
+              }
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET material 42",
+      "providerState": "material 42 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/materials/42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 42,
+          "materialNumber": 1000000000,
+          "description": "Baumischabfall schwer",
+          "wasteType": {
+            "id": 1,
+            "wasteCode": "112233",
+            "dangerous": false,
+            "description": "Normaler Müll"
+          },
+          "materialGroup": {
+            "id": 1,
+            "description": "Metalle"
+          },
+          "materialSubgroup": {
+            "id": 1,
+            "description": "Papier & Pappe",
+            "materialGroup": {
+              "id": 1,
+              "description": "Metalle"
+            }
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for material 42 ",
+      "providerState": "material 42 does not exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/materials/42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET request to list wasteChapters",
+      "providerState": "a list of wasteChapters exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/wastechapters"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "chapterId": "42",
+            "description": "Chapter Description"
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list wastegroups for specific wastechapter",
+      "providerState": "a list of wasteGroups exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/wastechapters/42/wastegroups"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "groupId": "4242",
+            "description": "wastegroup description",
+            "wasteTypes": [
+              {
+                "id": 1,
+                "wasteCode": "424233",
+                "dangerous": true,
+                "description": "Gefährlicher Müll"
+              }
+            ]
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST request to create a wasteType",
+      "providerState": "provider allows creating a wasteType",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/wastetypes",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "wasteCode": "112233",
+          "dangerous": true,
+          "description": "Gefährlicher Müll"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a POST for creating a wasteType with existing ID",
+      "providerState": "provider allows creating a wasteType",
+      "request": {
+        "method": "POST",
+        "path": "/article-service/api/wastetypes",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "wasteCode": "112233",
+          "dangerous": true,
+          "description": "Gefährlicher Müll"
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "UniqueConstraint"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update wasteType 1",
+      "providerState": "wasteType 1 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/wastetypes/1",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "wasteCode": "112233",
+          "dangerous": true,
+          "description": "Gefährlicher Müll"
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update wasteType 1",
+      "providerState": "wasteType 1 does not exist",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/wastetypes/1",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "wasteCode": "112233",
+          "dangerous": true,
+          "description": "Gefährlicher Müll"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a PUT request to update a wasteType with a different ID",
+      "providerState": "wasteType 1 exists",
+      "request": {
+        "method": "PUT",
+        "path": "/article-service/api/wastetypes/45",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1,
+          "wasteCode": "112233",
+          "dangerous": true,
+          "description": "Gefährlicher Müll"
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+        },
+        "body": {
+          "errorCode": "ValidationError",
+          "tracing": {
+            "traceId": "71ff6e8b547ea055",
+            "rootCauseSpanId": "71ff6e8b547ea055"
+          },
+          "validationErrors": [
+            {
+              "fieldIdentifier": {
+                "name": "id",
+                "index": null,
+                "subField": null
+              },
+              "errorCode": "PathIdDoesNotMatchPayload"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET request to list wasteTypes",
+      "providerState": "a list of wasteTypes exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/wastetypes",
+        "query": "page=0&size=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "size": 1,
+          "number": 0,
+          "first": true,
+          "last": true,
+          "numberOfElements": 1,
+          "totalElements": 1,
+          "totalPages": 1,
+          "content": [
+            {
+              "id": 1,
+              "wasteCode": "112233",
+              "dangerous": true,
+              "description": "Gefährlicher Müll"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET wasteType 1",
+      "providerState": "wasteType 1 exists",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/wastetypes/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 1,
+          "wasteCode": "112233",
+          "dangerous": true,
+          "description": "Gefährlicher Müll"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a GET for wasteType 1 ",
+      "providerState": "wasteType 1 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/wastetypes/1"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET to receive the price for article 42 in organizational unit 42",
+      "providerState": "article 42 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/pricings",
+        "query": "articleId=42&organizationalUnitId=42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET to receive the price for article 42 in organizational unit 42",
+      "providerState": "organizationalUnit 42 does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/pricings",
+        "query": "articleId=42&organizationalUnitId=42"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "a GET to receive the price for article 42 in organizational unit 42",
+      "providerState": "article 42 has a price for organizationalUnit 42",
+      "request": {
+        "method": "GET",
+        "path": "/article-service/api/pricings",
+        "query": "articleId=42&organizationalUnitId=42"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "amount": 240,
+          "currency": {
+            "id": 243,
+            "name": "Euro",
+            "isoCode": "EUR",
+            "symbol": "€"
+          }
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
