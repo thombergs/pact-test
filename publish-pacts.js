@@ -57,6 +57,13 @@ function replaceSpecialCharacters() {
     file = pactFolder + '/' + file;
     var data = fs.readFileSync(file, 'utf8');
     var result = data.replace(/€/g, '\\u20ac');
+    result = result.replace(/Ä/g, '\\u00c4');
+    result = result.replace(/ä/g, '\\u00e4');
+    result = result.replace(/Ö/g, '\\u00d6');
+    result = result.replace(/ö/g, '\\u00f6');
+    result = result.replace(/Ü/g, '\\u00dc');
+    result = result.replace(/ü/g, '\\u00fc');
+    result = result.replace(/ß/g, '\\u00df');
     fs.writeFileSync(file, result, 'utf8');
   });
 }
