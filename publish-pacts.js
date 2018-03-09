@@ -64,6 +64,9 @@ function replaceSpecialCharacters() {
     result = result.replace(/Ü/g, '\\u00dc');
     result = result.replace(/ü/g, '\\u00fc');
     result = result.replace(/ß/g, '\\u00df');
+    result = result.replace(/é/g, '\\uc3a9');
+    result = result.replace(/ã/g, '\\uc3a3');
+    result = result.replace(/í/g, '\\uc3ad');
     fs.writeFileSync(file, result, 'utf8');
   });
 }
