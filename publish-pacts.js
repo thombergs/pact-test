@@ -5,7 +5,7 @@
  * Das Skript geht davon aus, dass es neben der package.json liegt, da es
  * die Projekt-Version aus dieser Datei zieht.
  */
-const BROKER_URL = 'http://pact.remondis-de.local/';
+const BROKER_URL = 'BROKER_URL';
 
 let project = require('./package.json');
 let pactFolder = __dirname + '/pacts';
