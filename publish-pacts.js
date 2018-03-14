@@ -18,12 +18,8 @@ if (tag === undefined) {
   process.exit(1);
 }
 
-replaceSpecialCharacters();
-publishPact(pactFolder + '/ui-article.json');
-publishPact(pactFolder + '/ui-organization.json');
-publishPact(pactFolder + '/ui-plant.json');
-publishPact(pactFolder + '/ui-user.json');
-publishPact(pactFolder + '/ui-weighing.json');
+// replaceSpecialCharacters();
+publishPact(pactFolder + '/testconsumer-testprovider.json');
 
 /**
  * Veröffentlicht die Pacts auf dem Pact Broker.
@@ -40,7 +36,7 @@ function publishPact(filename) {
     // pactBrokerPassword: <String>,
   };
 
-  pact.publishPacts(options).then(function () {
+  return pact.publishPacts(options).then(function () {
     console.log("Pact " + filename + " successfully published with the tag '" + tag + "'!");
   }, function () {
     console.log("Error while publishing pact " + filename + "!");
